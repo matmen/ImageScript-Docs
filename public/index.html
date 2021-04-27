@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ImageScript Documentation Home</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">ImageScript</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                 
+                    
+                        <a
+                            class="link user-link "
+                            href="https://github.com/matmen/ImageScript"
+                        >
+                            Github
+                        </a>
+                    
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="Frame.html">Frame</a></li><li><a href="GIF.html">GIF</a></li><li><a href="Image.html">Image</a></li><li><a href="TextLayout.html">TextLayout</a></li></ul><h3>Global</h3><ul><li><a href="global.html#decode">decode</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p></p>
+                    <h1>Home</h1>
+                </header>
+                
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>ImageScript</h1>
+<h5>zero-dependency JavaScript image manipulation</h5>
+<p><a href="https://discord.gg/8hPrwAH"><img src="https://img.shields.io/discord/691713541262147687.svg?label=Discord&amp;logo=discord&amp;logoColor=ffffff&amp;color=7389D8&amp;labelColor=6A7EC2&amp;style=for-the-badge" alt="Discord Server"></a>
+<a href="https://oss-is.dreadful.tech/"><img src="https://img.shields.io/badge/Documentationn-informational?style=for-the-badge" alt="Documentation"></a>
+<a href="https://github.com/matmen/ImageScript"><img src="https://img.shields.io/badge/Github-Repository-181717?logo=github&amp;style=for-the-badge" alt="Github"></a>
+<a href="https://deno.land/x/imagescript"><img src="https://img.shields.io/badge/deno.land-181717?logo=deno&amp;style=for-the-badge" alt="deno.land"></a><br>
+<a href="https://www.npmjs.com/package/imagescript"><img src="https://nodei.co/npm/imagescript.png" alt="NPM"></a></p>
+<hr>
+<p><strong>ImageScript</strong> is a zero-dependency alternative to common JavaScript bitmap image manipulation tools.
+It can achieve much more performant results by utilizing lower-level memory access, less memory copying and WebAssembly for compression and encoding.</p>
+<hr>
+<h3>Features</h3>
+<ul>
+<li><a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#decode">Decoding images</a>
+<ul>
+<li>PNGs (grayscale, RGB, indexed colors) with and without alpha channels</li>
+<li>JPEGs (grayscale, RGB, CMYK)</li>
+<li>TIFFs</li>
+</ul>
+</li>
+<li><a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.gif.html#decode">Decoding GIFs</a></li>
+<li><a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#rendersvg">Rendering SVGs</a></li>
+<li><a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#rendertext">Rendering vector fonts</a></li>
+<li>Image manipulation
+functions (<a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#crop">crop</a>
+, <a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#rotate">rotate</a>
+, <a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#composite">composite</a>, ...)</li>
+<li>Color manipulation
+functions (<a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#invert">invert</a>
+, <a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#hueshift">hueShift</a>, ...)</li>
+<li>Color information
+functions (<a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#averagecolor">averageColor</a>
+, <a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#dominantcolor">dominantColor</a>, ...)</li>
+<li>Encoding images as <a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#encode">PNGs</a>
+, <a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#encodejpeg">JPEGs</a>
+and <a href="https://oss-is.dreadful.tech/classes/_imagescript_.gif.html#encode">GIFs</a></li>
+<li><a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.gif.html#encode">Encoding GIFs</a></li>
+</ul>
+<hr>
+<h3>Example</h3>
+<p><a href="https://github.com/matmen/ImageScript/blob/master/tests/readme.js"><img src="https://raw.githubusercontent.com/matmen/ImageScript/master/tests/targets/readme.png" alt="Example"></a></p>
+<hr>
+<p>If you have any additional questions, feel free to join the <a href="https://discord.gg/8hPrwAH">discord support server</a>.</p></article>
+    </section>
+
+
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+</body>
+</html>

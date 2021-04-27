@@ -1,0 +1,36 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "include": ["../ImageScript/ImageScript.js"]
+  },
+  "plugins": [
+    "plugins/markdown",
+    "jsdoc-mermaid"
+  ],
+  "opts": {
+    "encoding": "utf8",
+    "destination": "public/",
+    "readme": "README.md",
+    "recurse": true,
+    "verbose": true,
+    "template": "./node_modules/better-docs"
+  },
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": false,
+    "search": false,
+    "better-docs": {
+      "name": "ImageScript",
+      "title": "ImageScript Documentation",
+      "hideGenerator": false,
+      "navLinks": [
+        {
+          "label": "Github",
+          "href": "https://github.com/matmen/ImageScript"
+        }
+      ]
+    }
+  }
+}
