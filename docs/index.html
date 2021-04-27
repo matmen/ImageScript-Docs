@@ -116,44 +116,40 @@
         <article><h1>ImageScript</h1>
 <h5>zero-dependency JavaScript image manipulation</h5>
 <p><a href="https://discord.gg/8hPrwAH"><img src="https://img.shields.io/discord/691713541262147687.svg?label=Discord&amp;logo=discord&amp;logoColor=ffffff&amp;color=7389D8&amp;labelColor=6A7EC2&amp;style=for-the-badge" alt="Discord Server"></a>
-<a href="https://oss-is.dreadful.tech/"><img src="https://img.shields.io/badge/Documentationn-informational?style=for-the-badge" alt="Documentation"></a>
+<a href="https://imagescript.dreadful.tech/"><img src="https://img.shields.io/badge/Documentationn-informational?style=for-the-badge" alt="Documentation"></a>
 <a href="https://github.com/matmen/ImageScript"><img src="https://img.shields.io/badge/Github-Repository-181717?logo=github&amp;style=for-the-badge" alt="Github"></a>
-<a href="https://deno.land/x/imagescript"><img src="https://img.shields.io/badge/deno.land-181717?logo=deno&amp;style=for-the-badge" alt="deno.land"></a><br>
 <a href="https://www.npmjs.com/package/imagescript"><img src="https://nodei.co/npm/imagescript.png" alt="NPM"></a></p>
 <hr>
-<p><strong>ImageScript</strong> is a zero-dependency alternative to common JavaScript bitmap image manipulation tools.
-It can achieve much more performant results by utilizing lower-level memory access, less memory copying and WebAssembly for compression and encoding.</p>
+<p><strong>ImageScript</strong> is a zero-dependency alternative to common JavaScript bitmap image manipulation tools. It can achieve
+much more performant results by utilizing lower-level memory access, less memory copying and WebAssembly / native
+binaries for decoding and encoding.</p>
 <hr>
 <h3>Features</h3>
 <ul>
-<li><a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#decode">Decoding images</a>
+<li><a href="https://imagescript.dreadful.tech/Image.html#.decode">Decoding images</a>
 <ul>
 <li>PNGs (grayscale, RGB, indexed colors) with and without alpha channels</li>
 <li>JPEGs (grayscale, RGB, CMYK)</li>
 <li>TIFFs</li>
 </ul>
 </li>
-<li><a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.gif.html#decode">Decoding GIFs</a></li>
-<li><a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#rendersvg">Rendering SVGs</a></li>
-<li><a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#rendertext">Rendering vector fonts</a></li>
-<li>Image manipulation
-functions (<a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#crop">crop</a>
-, <a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#rotate">rotate</a>
-, <a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#composite">composite</a>, ...)</li>
-<li>Color manipulation
-functions (<a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#invert">invert</a>
-, <a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#hueshift">hueShift</a>, ...)</li>
-<li>Color information
-functions (<a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#averagecolor">averageColor</a>
-, <a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#dominantcolor">dominantColor</a>, ...)</li>
-<li>Encoding images as <a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#encode">PNGs</a>
-, <a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.image.html#encodejpeg">JPEGs</a>
-and <a href="https://oss-is.dreadful.tech/classes/_imagescript_.gif.html#encode">GIFs</a></li>
-<li><a href="https://oss-is.dreadful.tech/classes/_imagescript_._imagescript_-1.gif.html#encode">Encoding GIFs</a></li>
+<li><a href="https://imagescript.dreadful.tech/GIF.html#.decode">Decoding GIFs</a></li>
+<li><a href="https://imagescript.dreadful.tech/Image.html#.renderSVG">Rendering SVGs</a></li>
+<li><a href="https://imagescript.dreadful.tech/Image.html#.renderText">Rendering vector fonts</a></li>
+<li>Image manipulation functions (<a href="https://imagescript.dreadful.tech/Image.html#crop">crop</a>
+, <a href="https://imagescript.dreadful.tech/Image.html#rotate">rotate</a>
+, <a href="https://imagescript.dreadful.tech/Image.html#composite">composite</a>, ...)</li>
+<li>Color manipulation functions (<a href="https://imagescript.dreadful.tech/Image.html##invert">invert</a>
+, <a href="https://imagescript.dreadful.tech/Image.html##hueshift">hueShift</a>, ...)</li>
+<li>Color information functions (<a href="https://imagescript.dreadful.tech/Image.html##averagecolor">averageColor</a>
+, <a href="https://imagescript.dreadful.tech/Image.html##dominantcolor">dominantColor</a>, ...)</li>
+<li>Encoding images as <a href="https://imagescript.dreadful.tech/Image.html##encode">PNGs</a>
+, <a href="https://imagescript.dreadful.tech/Image.html##encodejpeg">JPEGs</a>
+and <a href="https://imagescript.dreadful.tech/GIF.html#encode">GIFs</a></li>
 </ul>
 <hr>
 <h3>Example</h3>
-<p><a href="https://github.com/matmen/ImageScript/blob/master/tests/readme.js"><img src="https://raw.githubusercontent.com/matmen/ImageScript/master/tests/targets/readme.png" alt="Example"></a></p>
+<p><a href="https://github.com/matmen/ImageScript/blob/master/tests/readme.js"><img src="https://github.com/matmen/ImageScript/raw/master/tests/targets/readme.png" alt="Example"></a></p>
 <hr>
 <p>If you have any additional questions, feel free to join the <a href="https://discord.gg/8hPrwAH">discord support server</a>.</p></article>
     </section>
