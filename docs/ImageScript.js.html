@@ -98,17 +98,17 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const png = require('./utils/png');
-const mem = require('./utils/buffer.js');
+            <pre class="prettyprint source linenums"><code>const png = require('./png/node.js');
+const mem = require('./utils/mem.js');
 const codecs = require('./node/index.js');
 const {version} = require('./package.json');
 
 // old
-const svglib = require('./utils/wasm/svg');
-const giflib = require('./utils/wasm/gif');
-const fontlib = require('./utils/wasm/font');
-const jpeglib = require('./utils/wasm/jpeg');
-const tifflib = require('./utils/wasm/tiff');
+const svglib = require('./wasm/node/svg.js');
+const giflib = require('./wasm/node/gif.js');
+const fontlib = require('./wasm/node/font.js');
+const jpeglib = require('./wasm/node/jpeg.js');
+const tifflib = require('./wasm/node/tiff.js');
 
 const MAGIC_NUMBERS = {
     PNG: 0x89504e47,
@@ -583,8 +583,10 @@ class Image {
      * @returns {Image}
      */
     drawBox(x, y, width, height, color) {
-        x -= 1;
-        y -= 1;
+        x = ~~(x - 1);
+        y = ~~(y - 1);
+        width = ~~width;
+        height = ~~height;
 
         if (typeof color === 'function') {
             for (let tY = 1; tY &lt;= height; tY++) {
@@ -614,12 +616,12 @@ class Image {
     __fast_box__(x, y, width, height, color) {
         if (x &lt; 0) {
             width += x;
-            x = 1;
+            x = 0;
         }
 
         if (y &lt; 0) {
             height += y;
-            y = 1;
+            y = 0;
         }
 
         const right = Math.max(Math.min(x + width, this.width), 1);
@@ -1477,9 +1479,9 @@ class Frame extends Image {
     }
 
     static __convert_disposal_mode__(mode) {
-        if(typeof mode === 'string')
-        mode = ['keep', 'previous', 'background'].indexOf(mode) + 1;
-        if(mode &lt; 1 || mode > 3)
+        if (typeof mode === 'string')
+            mode = ['any', 'keep', 'previous', 'background'].indexOf(mode);
+        if (mode &lt; 0 || mode > 3)
             throw new RangeError('Invalid disposal mode');
 
         return mode;
@@ -1492,7 +1494,7 @@ class Frame extends Image {
      * @param {number} [duration = 100] The frames duration (in ms)
      * @param {number} [xOffset=0] The frames offset on the x-axis
      * @param {number} [yOffset=0] The frames offset on the y-axis
-     * @param {string|number} [disposalMode=Frame.DISPOSAL_KEEP] The frames disposal mode ({@link Frame.DISPOSAL_KEEP}, {@link Frame.DISPOSAL_PREVIOUS} or {@link Frame.DISPOSAL_BACKGROUND})
+     * @param {string|number} [disposalMode=Frame.DISPOSAL_KEEP] The frame's disposal mode ({@link Frame.DISPOSAL_KEEP}, {@link Frame.DISPOSAL_PREVIOUS} or {@link Frame.DISPOSAL_BACKGROUND})
      * @return {Frame}
      */
     constructor(width, height, duration = 100, xOffset = 0, yOffset = 0, disposalMode = Frame.DISPOSAL_KEEP) {
@@ -1662,16 +1664,85 @@ class GIF extends Array {
             const frames = [];
             const decoder = new (await giflib.init()).Decoder(data);
 
-            for (const frameData of decoder.frames()) {
-                const frame = new Frame(frameData.width, frameData.height, frameData.delay * 10, frameData.x, frameData.y, frameData.dispose);
-                frame.bitmap.set(frameData.buffer);
-                frames.push(frame);
+            const gwidth = decoder.width | 0;
+            const gheight = decoder.height | 0;
+            const u32 = new Uint32Array(decoder.width * decoder.height);
+            const u8 = new Uint8Array(u32.buffer, u32.byteOffset, u32.byteLength);
+
+            for (const frame of decoder.frames()) {
+                let offset8 = 0 | 0;
+                let offset32 = 0 | 0;
+                const fx = frame.x | 0;
+                const fy = frame.y | 0;
+                const f8 = frame.buffer;
+                const mode = frame.dispose;
+                const width = frame.width | 0;
+                const height = frame.height | 0;
+                const f32 = new Uint32Array(f8.buffer, f8.byteOffset, width * height);
+                const f = frames[frames.push(new Frame(gwidth, gheight, 10 * frame.delay, 0, 0, 3)) - 1];
+
+                const t8 = f.bitmap;
+                const t32 = new Uint32Array(t8.buffer);
+
+                t8.set(u8);
+
+                if (2 === mode) {
+                    for (let y = 0 | 0; y &lt; height; y++) {
+                        const y_offset = fx + gwidth * (y + fy) | 0;
+
+                        for (let x = 0 | 0; x &lt; width; x++) {
+                            const x_offset = x + y_offset;
+
+                            if (0 === f8[3 + offset8])
+                            t32[x_offset] = u32[x_offset];
+                            else t32[x_offset] = f32[offset32];
+
+                            offset32++;
+                            offset8 += 4;
+                        }
+                    }
+                }
+
+                else if (3 === mode) {
+                    for (let y = 0 | 0; y &lt; height; y++) {
+                        const y_offset = fx + gwidth * (y + fy) | 0;
+
+                        for (let x = 0 | 0; x &lt; width; x++) {
+                            const x_offset = x + y_offset;
+
+                            if (0 === f8[3 + offset8])
+                            t32[x_offset] = u32[x_offset];
+                            else t32[x_offset] = f32[offset32];
+
+                            offset32++;
+                            offset8 += 4;
+                            u32[x_offset] = 0;
+                        }
+                    }
+                }
+
+                else if (0 === mode || 1 === mode) {
+                    t8.set(u8)
+                    for (let y = 0 | 0; y &lt; height; y++) {
+                        const y_offset = fx + gwidth * (y + fy) | 0;
+
+                        for (let x = 0 | 0; x &lt; width; x++) {
+                            const x_offset = x + y_offset;
+
+                            if (0 === f8[3 + offset8])
+                                t32[x_offset] = u32[x_offset];
+                            else t32[x_offset] = f32[offset32];
+
+                            offset32++;
+                            offset8 += 4;
+                            u32[x_offset] = t32[x_offset];
+                        }
+                    }
+                }
 
                 if (onlyExtractFirstFrame)
                     break;
             }
-
-            decoder.free();
 
             image = new GIF(frames);
         } else throw new Error('Unsupported image type');
@@ -1694,7 +1765,7 @@ class TextLayout {
      * @param {string} [options.wrapStyle='word'] The texts wrap style when reaching the max width (word, char)
      * @param {string} [options.verticalAlign='left'] The vertical align mode (left, center, right)
      * @param {string} [options.horizontalAlign='top'] The horizontal align mode (top, middle, bottom)
-     * @param {string} [options.wrapHardBreaks=true] Whether to force wrap at new line characters
+     * @param {boolean} [options.wrapHardBreaks=true] Whether to force wrap at new line characters
      */
     constructor(options) {
         const {maxWidth, maxHeight, wrapStyle, verticalAlign, horizontalAlign, wrapHardBreaks} = options || {};
@@ -1807,7 +1878,7 @@ module.exports = {Image, GIF, Frame, TextLayout, ImageType, decode};
             
             <footer class="footer">
                 <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a></p>
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a></p>
                     <p class="sidebar-created-by">
                         <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
                         <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
