@@ -133,7 +133,7 @@
     
     
     <div class="description">
-        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+        <p>Creates a new GIF image.</p>
     </div>
     
 
@@ -344,7 +344,7 @@
         <p class="tag-source">
             <a href="ImageScript.js.html" class="button">View Source</a>
             <span>
-                <a href="ImageScript.js.html">ImageScript.js</a>, <a href="ImageScript.js.html#line1359">line 1359</a>
+                <a href="ImageScript.js.html">ImageScript.js</a>, <a href="ImageScript.js.html#line1323">line 1323</a>
             </span>
         </p>
     
@@ -421,76 +421,7 @@
 
 
 <div class="description">
-    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>The GIFs duration (in ms)</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="ImageScript.js.html" class="button">View Source</a>
-            <span>
-                <a href="ImageScript.js.html">ImageScript.js</a>, <a href="ImageScript.js.html#line1434">line 1434</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-</div>
-            
-                <div class="member">
-
-<h4 class="name" id="height">
-    <a class="href-link" href="#height">#</a>
-    
-    <span class="code-name">
-        height
-    </span>
-    
-</h4>
-
-
-
-
-<div class="description">
-    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>The GIFs height</p>
+    <p>The GIFs duration (in ms)</p>
 </div>
 
 
@@ -546,11 +477,11 @@
             
                 <div class="member">
 
-<h4 class="name" id="width">
-    <a class="href-link" href="#width">#</a>
+<h4 class="name" id="height">
+    <a class="href-link" href="#height">#</a>
     
     <span class="code-name">
-        width
+        height
     </span>
     
 </h4>
@@ -559,7 +490,7 @@
 
 
 <div class="description">
-    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>The GIFs width</p>
+    <p>The GIFs height</p>
 </div>
 
 
@@ -601,7 +532,76 @@
         <p class="tag-source">
             <a href="ImageScript.js.html" class="button">View Source</a>
             <span>
-                <a href="ImageScript.js.html">ImageScript.js</a>, <a href="ImageScript.js.html#line1383">line 1383</a>
+                <a href="ImageScript.js.html">ImageScript.js</a>, <a href="ImageScript.js.html#line1362">line 1362</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="width">
+    <a class="href-link" href="#width">#</a>
+    
+    <span class="code-name">
+        width
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>The GIFs width</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="ImageScript.js.html" class="button">View Source</a>
+            <span>
+                <a href="ImageScript.js.html">ImageScript.js</a>, <a href="ImageScript.js.html#line1347">line 1347</a>
             </span>
         </p>
     
@@ -621,6 +621,203 @@
         <div class='vertical-section'>
             <h1>Methods</h1>
             <div class="members">
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="encode">
+        <a class="href-link" href="#encode">#</a>
+        
+            
+                <span class='tag'>async</span>
+            
+        
+        <span class="code-name">
+            
+                encode<span class="signature">(quality<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Uint8Array>}</span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <p>Encodes the image into a GIF</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+            <th>Attributes</th>
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>quality</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">number</span>
+
+
+  
+  </td>
+
+  
+      <td class="attributes">
+      
+          &lt;optional><br>
+      
+
+      
+
+      
+      </td>
+  
+
+  
+      <td class="default">
+      
+          95
+      
+      </td>
+  
+
+  <td class="description last"><p>GIF quality 0-100</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="ImageScript.js.html" class="button">View Source</a>
+            <span>
+                <a href="ImageScript.js.html">ImageScript.js</a>, <a href="ImageScript.js.html#line1407">line 1407</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>The encoded data</p></div>
+    
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<span class="param-type">Promise.&lt;Uint8Array></span>
+
+
+    </div>
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
             
                 <div class="member">
 
@@ -646,7 +843,7 @@
     
     
     <div class="description">
-        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Decodes a GIF image</p>
+        <p>Decodes a GIF image</p>
     </div>
     
 
@@ -808,7 +1005,7 @@
         <p class="tag-source">
             <a href="ImageScript.js.html" class="button">View Source</a>
             <span>
-                <a href="ImageScript.js.html">ImageScript.js</a>, <a href="ImageScript.js.html#line1471">line 1471</a>
+                <a href="ImageScript.js.html">ImageScript.js</a>, <a href="ImageScript.js.html#line1435">line 1435</a>
             </span>
         </p>
     
@@ -861,203 +1058,6 @@
 
 </div>
             
-                <div class="member">
-
-
-    
-    <h4 class="name" id="encode">
-        <a class="href-link" href="#encode">#</a>
-        
-            
-                <span class='tag'>async</span>
-            
-        
-        <span class="code-name">
-            
-                encode<span class="signature">(quality<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Uint8Array>}</span>
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Encodes the image into a GIF</p>
-    </div>
-    
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-            <th>Attributes</th>
-            
-
-            
-            <th>Default</th>
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>quality</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">number</span>
-
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-          95
-      
-      </td>
-  
-
-  <td class="description last"><p>GIF quality 0-100</p></td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="ImageScript.js.html" class="button">View Source</a>
-            <span>
-                <a href="ImageScript.js.html">ImageScript.js</a>, <a href="ImageScript.js.html#line1443">line 1443</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class='columns method-parameter'>
-        <div class="column is-2"><label>Returns:</label></div>
-        <div class="column is-10">
-            
-                    
-
-<div class="columns">
-    
-    <div class='param-desc column is-7'><p>The encoded data</p></div>
-    
-    
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<span class="param-type">Promise.&lt;Uint8Array></span>
-
-
-    </div>
-    
-</div>
-
-                
-        </div>
-    </div>
-
-
-
-
-</div>
-            
             </div>
         </div>
     
@@ -1076,7 +1076,7 @@
             
             <footer class="footer">
                 <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a></p>
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.0</a></p>
                     <p class="sidebar-created-by">
                         <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
                         <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
